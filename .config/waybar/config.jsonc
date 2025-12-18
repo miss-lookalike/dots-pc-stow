@@ -61,7 +61,7 @@
   },
 }, {
   
-  "output": "HDMI-A-1",
+  "output": "HDMI-A-2",
   "modules-left": [
     "image",
     "hyprland/workspaces",
