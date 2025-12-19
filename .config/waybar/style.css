@@ -1,6 +1,6 @@
 @import "mocha.css";
 
-@define-color   base    @surface0;
+@define-color   base    @surface1;
 @define-color   hl_low  @surface2;
 @define-color   text    @text;
 @define-color   red     @red;
