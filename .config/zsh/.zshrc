@@ -40,3 +40,4 @@ source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 source /home/syd/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+precmd() { mommy -1 -s $? }
