@@ -13,6 +13,5 @@
 
 
 
-## Run
-wofi --show drun \
-    
+## Run   
+wofi --conf ~/dotfiles/.config/wofi/config/config --style ~/dotfiles/.config/wofi/src/mocha/style.css

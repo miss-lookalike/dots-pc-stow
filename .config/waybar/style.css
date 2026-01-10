@@ -1,7 +1,7 @@
 @import "mocha.css";
 
-@define-color   base    @surface1;
-@define-color   hl_low  @surface2;
+@define-color   base    @crust;
+@define-color   hl_low  @mantle;
 @define-color   text    @text;
 @define-color   red     @red;
 @define-color   green   @green;
@@ -16,8 +16,8 @@
 }
 
 window#waybar {
-  background: rgba(49,50, 68, 0.6);
-  border: 0.5px solid @surface0;
+  background: rgba(17, 17, 27, 0.6);
+  border: 0.5px solid @mantle;
   border-radius: 8px;
   color: @text;
 }
