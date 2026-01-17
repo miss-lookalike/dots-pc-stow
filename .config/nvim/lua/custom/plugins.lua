@@ -59,6 +59,13 @@ local plugins = {
     end
   },
   {
+    "denialofsandwich/sudo.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    config = true,
+  },
+  {
     "hrsh7th/nvim-cmp",
     opts = function()
       local M = require "plugins.configs.cmp"
