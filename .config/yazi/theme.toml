@@ -114,6 +114,9 @@ rules = [
 	# Documents
 	{ mime = "application/{pdf,doc,rtf}", fg = "#a6e3a1" },
 
+  # Hidden
+  { name = "*", is = "hidden", bg = "#f38ba8" },
+
 	# Virtual file system
 	{ mime = "vfs/{absent,stale}", fg = "#45475a" },
 
