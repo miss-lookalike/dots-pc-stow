@@ -46,9 +46,9 @@ show_actions = ["alt j"]
 [providers]
 default = [
   "desktopapplications",
-  "calc",
+  #"calc",
   # "runner",
-  "websearch",
+  #"websearch",
 ] # providers to be queried by default
 empty = ["desktopapplications"] # providers to be queried when query is empty
 ignore_preview = [] # providers that should not show previews

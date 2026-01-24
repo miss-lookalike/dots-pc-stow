@@ -1,19 +1,15 @@
 #!/usr/bin/env bash
-
-op=$( echo -e " Poweroff\n Reboot\n Suspend\n Lock\n Logout" | wofi -i --dmenu --style ~/dotfiles/.config/wofi/src/mocha/style.css | awk '{print tolower($2)}' )
-
-case $op in 
-        poweroff)
-                ;&
-        reboot)
-                ;&
-        suspend)
-                systemctl $op
-                ;;
-        lock)
-		hyprlock
-                ;;
-        logout)
-                hyprctl dispatch exit
-                ;;
-esac
+items="Shutdown\nReboot\nLock"
+output=$(echo -e $items | walker --dmenu -H)
+if [[ "$output" == "Shutdown" ]]; then
+    echo "Execute shutdown command"
+    shutdown -h now
+elif [[ "$output" == "Reboot" ]]; then
+    echo "Execute reboot command"
+    reboot
+elif [[ "$output" == "Lock" ]]; then
+    echo "Execute lock command"
+    hyprlock
+else
+    echo "Please select a command"
+fi

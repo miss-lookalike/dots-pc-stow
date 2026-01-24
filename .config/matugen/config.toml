@@ -1,0 +1,86 @@
+[config]
+# If set to enabled, it will check for updates when you run the matugen command, notifying you that an update is avaiable.
+# WARNING: Matugen needs to be compiled with the `update-informer` feature for this to work.
+version_check = false
+
+# The color which should be used as the source_color if no good color was found from an image.
+# Can be defined in any css format.
+# The cli flag will override this if used.
+fallback_color = "#ffbf9b"
+
+# Enables caching which will cache the colorscheme, custom colors, etc. into a cache folder located in
+# Windows: C:\Users\user\AppData\Roaming\InioX\matugen\cache\images\<file>
+# Linux: $XDG_CACHE_HOME/matugen/<file> or $HOME/.cache/matugen/images/<file>
+# MacOS: $HOME/Library/Caches/matugen/images/<file>
+# The file follows this naming: <image_name>.<image_extension>.<image_hash>.json
+# For example: testimage.png.0cfd2d624b3d09bf6246b7be9ca79e207e7aa1189d961d44949628b99811bb9d.json
+# You can modify the cache and it will then be loaded when using the same image.
+# The colors are defined using the #RRGGBBAA format.
+caching = false
+
+# Changing the syntax
+# Expr is for keywords like {{ <keyword> }}
+expr_prefix = "{{"
+expr_postfix = "}}"
+
+# Block is for stuff like for loops etc.
+block_prefix = "<*"
+block_postfix = "*>"
+
+[config.wallpaper]
+# Whether to set the wallpaper or not
+set = false
+
+# The base command to run for applying the wallpaper.
+# Keywords like {{ image }} or anything that works inside of hooks works here.
+# You could also set a static color if you use the color keywords and the wallpaper setter supports it.
+command = "swww img --transition-type center {{ image }}"
+
+# For example, killing the wallpaper daemon. Usage is like a normal hook.
+# pre_hook = ""
+
+[templates.wezterm]
+input_path = '~/dotfiles/.config/matugen/templates/wezterm_theme.toml'
+output_path = '~/.config/wezterm/colors/matugen_theme.toml'
+
+# For testing of the `--continue-on-error` flag
+# [templates.ishoulderror]
+# Relative paths will be resolved from the path `config.toml` is in.
+# input_path = "./error-testing.txt"
+# output_path = "./a/error-testing.txt"
+
+# This will use a different input path depending on what mode you use.
+# input_path_modes = { dark = "./colors.whatever-extension", light = "./colors.whatever-extension" }
+
+# This will compare all of the colors inside the array with the color you set as `compare_to`, and returns the closest color to it.
+# You can then use `{{closest_color}}` inside hooks.
+colors_to_compare = [
+    { name = "black", color = "#11111b" },
+    { name = "red", color = "#f38ba8" },
+    { name = "maroon", color = "#eba0ac" },
+    { name = "yellow", color = "#f9e2af" },
+    { name = "peach", color = "#fab387" },
+    # { name = "olive", color = "#" },
+    # { name = "lime", color = "#" },
+    { name = "green", color = "#a6e3a1" },
+    { name = "sapphire", color = "#74c7ec" },
+    { name = "teal", color = "#94e2d5" },
+    { name = "blue", color = "#89b4fa" },
+    { name = "lavender", color = "#b4befe" },
+    # { name = "navy", color = "#000080" },
+    { name = "fuchsia", color = "#f5c2e7" },
+    { name = "purple", color = "#cba6f7" },
+]
+compare_to = "{{colors.primary.default.hex}}"
+
+# Runs before the template is exported. You can use keywords here.
+# If you want the command to be async, add an & symbol to the end of the command on unix.
+pre_hook = 'echo "source color {{colors.source_color.default.hex}}, source image {{image}}, closest color {{closest_color}}"'
+# Runs after the template is exported. You can use keywords here.
+# If you want the command to be async, add an & symbol to the end of the command on unix.
+post_hook = 'echo "after gen"'
+
+# For overriding the prefix for a specific template only
+expr_prefix = "{{"
+expr_postfix = "}}"
+

@@ -8,6 +8,14 @@ alias shutdown='sudo shutdown now'
 alias restart='sudo reboot'
 alias suspend='sudo pm-suspend'
 
+# +---------+
+# | General |
+# +---------+
+
+alias wtc='wtwitch c'
+alias wtw='wtwitch w'
+alias wts='wtwitch s'
+
 # +-----+
 # | Zsh |
 # +-----+
